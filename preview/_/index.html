@@ -5,6 +5,9 @@
         <title>Preview</title>
         <link type="text/css" href="css/previm.css" rel="stylesheet" media="all" />
         <link type="text/css" href="../_/css/lib/mermaid.min.css" rel="stylesheet" media="all" />
+        <link type="text/css" href="../_/css/lib/monokai-sublime.css" rel="stylesheet" media="all" />
+        <link type="text/css" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css" rel="stylesheet" media="all" />
+        <link type="text/css" href="../_/css/lib/texmath.min.css" rel="stylesheet" media="all" />
         <style>
           /* Fix #43 */
           .section,
@@ -13,6 +16,10 @@
           .section2,
           .section3 {
             opacity: unset;
+          }
+          body {
+              /* 印刷でPDF作成するときにcodeブロックの背景色もそのまま印刷する */
+              -webkit-print-color-adjust: exact;
           }
         </style>
     </head>
@@ -24,6 +31,9 @@
         <div id="preview"></div>
         <div id="footer">
             <script src="../_/js/lib/markdown-it.min.js"></script>
+            <script src="../_/js/lib/katex.min.js"></script>
+            <script src="../_/js/lib/texmath.min.js"></script>
+
             <script src="../_/js/lib/markdown-it-abbr.min.js"></script>
             <script src="../_/js/lib/markdown-it-deflist.min.js"></script>
             <script src="../_/js/lib/markdown-it-footnote.min.js"></script>

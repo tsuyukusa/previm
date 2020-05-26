@@ -267,6 +267,12 @@ function! previm#relative_to_absolute_imgpath(text, mkd_dir) abort
   let prev_imgpath = ''
   let new_imgpath = ''
   let path_prefix = '//localhost'
+
+  " wslの場合は画像のパスを wslpath コマンドで生成する
+  if get(g:, 'previm_wsl_mode', 0) ==#1
+      let path_prefix = '//wsl%24/' . system('wslpath -w ' . localpath . ' | awk -F \\ ''{printf $4}''')
+  endif
+
   if s:start_with(local_path, 'file://')
     let path_prefix = ''
     let local_path = local_path[7:]
